@@ -83,7 +83,7 @@ Acesse o projeto em http://127.0.0.1:8000
 ```
 
 ## Login de ADM ##
-- Email: beortizz@gmail.com
+- Email: adm@gmail.com
 - Senha: bernardo1234
 
 

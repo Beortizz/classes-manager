@@ -1,4 +1,4 @@
-FROM serversideup/php:8.3-fpm-apache as base
+FROM serversideup/php:8.2-fpm-apache as base
 WORKDIR /var/www/html
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-interaction --no-plugins --no-scripts --prefer-dist
@@ -10,7 +10,7 @@ COPY --from=base /var/www/html .
 RUN npm install
 RUN npm run build
 
-FROM serversideup/php:8.3-fpm-apache
+FROM serversideup/php:8.2-fpm-apache
 ENV APP_NAME 'Laravel'
 ENV APP_ENV 'production'
 ENV APP_KEY ''

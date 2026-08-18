@@ -82,6 +82,28 @@ php artisan serve
 Acesse o projeto em http://127.0.0.1:8000
 ```
 
+## Rodando com Docker
+
+Pré-requisito: [Docker](https://www.docker.com/) e Docker Compose.
+
+1. Copie o `.env.example` para `.env` (o `DB_HOST`/`DB_PORT` são sobrescritos automaticamente pelo Compose).
+2. Suba os containers:
+```bash
+docker compose up -d
+```
+3. O container `app` já roda `composer install`, `key:generate` e `migrate` automaticamente no start (veja `docker/php/entrypoint.sh`).
+4. Acesse:
+   - App: http://localhost:8001
+   - Vite (dev server): http://localhost:5174
+   - phpMyAdmin: http://localhost:8081
+   - MySQL exposto em: `localhost:3307`
+
+Para rodar seeders, artisan ou composer dentro do container:
+```bash
+docker compose exec app php artisan db:seed
+docker compose exec app php artisan tinker
+```
+
 ## Login de ADM ##
 - Email: adm@gmail.com
 - Senha: bernardo1234
